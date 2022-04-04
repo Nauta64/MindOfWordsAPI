@@ -108,6 +108,7 @@ def searchW(word):
 
 def obj_dict(obj):
     return obj.__dict__
+
 if __name__ == '__main__':
 
     app.run(host="0.0.0.0")
