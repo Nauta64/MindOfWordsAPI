@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/wordnik-python3-master.iml" filepath="$PROJECT_DIR$/.idea/wordnik-python3-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../MOWAPI/.idea/MOWAPI.iml" filepath="$PROJECT_DIR$/../MOWAPI/.idea/MOWAPI.iml" />
     </modules>
   </component>
 </project>
