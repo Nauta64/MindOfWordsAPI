@@ -1,0 +1,122 @@
+[
+    {
+        "name": {
+            "mail": "name@gmail.com",
+            "password": "",
+            "wordle": {
+                "won": 0,
+                "lost": 0,
+                "streak": {
+                    "current": 0,
+                    "max": 0
+                }
+            },
+            "spell": {
+                "won": 0,
+                "lost": 0,
+                "streak": {
+                    "current": 0,
+                    "max": 0
+                }
+            },
+            "syn": {
+                "won": 0,
+                "lost": 0,
+                "streak": {
+                    "current": 0,
+                    "max": 0
+                }
+            }
+        }
+    },
+    {
+        "a": {
+            "mail": "a",
+            "password": "a",
+            "wordle": {
+                "won": 0,
+                "lost": 0,
+                "streak": {
+                    "current": 0,
+                    "max": 0
+                }
+            },
+            "spell": {
+                "won": 0,
+                "lost": 0,
+                "streak": {
+                    "current": 0,
+                    "max": 0
+                }
+            },
+            "syn": {
+                "won": 0,
+                "lost": 0,
+                "streak": {
+                    "current": 0,
+                    "max": 0
+                }
+            }
+        }
+    },
+    {
+        "k3nm4": {
+            "mail": "julia@gmail.com",
+            "password": "julia15",
+            "wordle": {
+                "won": 0,
+                "lost": 0,
+                "streak": {
+                    "current": 0,
+                    "max": 0
+                }
+            },
+            "spell": {
+                "won": 0,
+                "lost": 0,
+                "streak": {
+                    "current": 0,
+                    "max": 0
+                }
+            },
+            "syn": {
+                "won": 0,
+                "lost": 0,
+                "streak": {
+                    "current": 0,
+                    "max": 0
+                }
+            }
+        }
+    },
+    {
+        "alex": {
+            "mail": "alex@gmail.com",
+            "password": "alex123",
+            "wordle": {
+                "won": 0,
+                "lost": 0,
+                "streak": {
+                    "current": 0,
+                    "max": 0
+                }
+            },
+            "spell": {
+                "won": 0,
+                "lost": 0,
+                "streak": {
+                    "current": 0,
+                    "max": 0
+                }
+            },
+            "syn": {
+                "won": 0,
+                "lost": 0,
+                "streak": {
+                    "current": 0,
+                    "max": 0
+                }
+            }
+        }
+    }
+]
