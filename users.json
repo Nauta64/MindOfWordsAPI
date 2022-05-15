@@ -1,15 +1,28 @@
 [
     {
-        "name": {
-            "mail": "name@gmail.com",
+        "0": {
+            "name": "null",
+            "mail": "null",
             "password": "",
+            "image": "",
             "wordle": {
                 "won": 0,
                 "lost": 0,
                 "streak": {
                     "current": 0,
                     "max": 0
-                }
+                },
+                "guessDistribution": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastGuess": 0,
+                "lastBoard": "9",
+                "gameNumber": 0
             },
             "spell": {
                 "won": 0,
@@ -30,16 +43,72 @@
         }
     },
     {
-        "a": {
-            "mail": "a",
+        "1": {
+            "name": "a",
+            "mail": "a@gmail.com",
             "password": "a",
+            "image": "assets/avatars/gallina.png",
+            "wordle": {
+                "won": 2,
+                "lost": 0,
+                "streak": {
+                    "current": 1,
+                    "max": 1
+                },
+                "guessDistribution": [
+                    1,
+                    0,
+                    2,
+                    0,
+                    0,
+                    0
+                ],
+                "lastGuess": 1,
+                "lastBoard": "\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+                "gameNumber": 328
+            },
+            "spell": {
+                "won": 5,
+                "lost": 1,
+                "streak": {
+                    "current": 0,
+                    "max": 2
+                }
+            },
+            "syn": {
+                "won": 2,
+                "lost": 1,
+                "streak": {
+                    "current": 0,
+                    "max": 1
+                }
+            }
+        }
+    },
+    {
+        "2": {
+            "name": "guillem",
+            "mail": "guillem@gmail.com",
+            "password": "guillem",
+            "image": "",
             "wordle": {
                 "won": 0,
                 "lost": 0,
                 "streak": {
                     "current": 0,
                     "max": 0
-                }
+                },
+                "guessDistribution": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastGuess": 0,
+                "lastBoard": "",
+                "gameNumber": 328
             },
             "spell": {
                 "won": 0,
@@ -60,16 +129,72 @@
         }
     },
     {
-        "k3nm4": {
+        "3": {
+            "name": "b",
+            "mail": "b@gmail.com",
+            "password": "b",
+            "image": "assets/avatars/gallina.png",
+            "wordle": {
+                "won": 15,
+                "lost": 10,
+                "streak": {
+                    "current": 0,
+                    "max": 0
+                },
+                "guessDistribution": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastGuess": 0,
+                "lastBoard": "",
+                "gameNumber": 328
+            },
+            "spell": {
+                "won": 0,
+                "lost": 0,
+                "streak": {
+                    "current": 0,
+                    "max": 0
+                }
+            },
+            "syn": {
+                "won": 0,
+                "lost": 0,
+                "streak": {
+                    "current": 0,
+                    "max": 0
+                }
+            }
+        }
+    },
+    {
+        "4": {
+            "name": "julia",
             "mail": "julia@gmail.com",
-            "password": "julia15",
+            "password": "julia",
+            "image": "",
             "wordle": {
-                "won": 0,
+                "won": 1,
                 "lost": 0,
                 "streak": {
-                    "current": 0,
-                    "max": 0
-                }
+                    "current": 1,
+                    "max": 1
+                },
+                "guessDistribution": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastGuess": 1,
+                "lastBoard": "\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+                "gameNumber": 329
             },
             "spell": {
                 "won": 0,
@@ -90,16 +215,28 @@
         }
     },
     {
-        "alex": {
-            "mail": "alex@gmail.com",
-            "password": "alex123",
+        "6": {
+            "name": "ff",
+            "mail": "ff@gmail.com",
+            "password": "ff",
+            "image": "",
             "wordle": {
                 "won": 0,
                 "lost": 0,
                 "streak": {
                     "current": 0,
                     "max": 0
-                }
+                },
+                "guessDistribution": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lastGuess": 0,
+                "lastBoard": ""
             },
             "spell": {
                 "won": 0,

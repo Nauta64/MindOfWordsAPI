@@ -1,8 +1,7 @@
 import random
-from flask import request, jsonify,Flask
+from flask import request, jsonify, Response, Flask
 import requests
 import json
-
 from objectSyn import APIObject
 
 # apiUrl = 'http://api.wordnik.com/v4'
@@ -41,16 +40,21 @@ def adduser():
     print(type(listObj))
 
     listObj.append({
-        request.json.get('userName'): {
+        f"{len(listObj) + 1}": {
+            "name": request.json.get('userName'),
             "mail": request.json.get('mail'),
             "password": request.json.get('password'),
+            "image": "",
             "wordle": {
                 "won": 0,
                 "lost": 0,
                 "streak": {
                     "current": 0,
                     "max": 0
-                }
+                },
+                "guessDistribution": [0, 0, 0, 0, 0, 0],
+                "lastGuess": 0,
+                "lastBoard": ""
 
             },
             "spell": {
@@ -86,13 +90,14 @@ def adduser():
 
     return "true"
 
+
 @app.route('/login', methods=['POST'])
 def login():
     from os import path
 
     filename = 'users.json'
     listObj = []
-
+    correct = False
     # Check if file exists
     if path.isfile(filename) is False:
         raise Exception("File not found")
@@ -103,12 +108,195 @@ def login():
     print(listObj)
     print(request.json.get('userName'))
     # Search 'brand' for women
+    user = {}
+    count = 0
     for usr in listObj:
-        if usr.get(request.json.get('userName')):
-            print("Si esta")
-    print("yata")
+        print(usr[f"{count}"]['name'])
+        if usr[f"{count}"]['name'] == request.json.get('userName'):
+            correct = True
+            user = {'userName': usr[f"{count}"]['name'],
+                    'password': usr[f"{count}"]['password'],
+                    'mail': usr[f"{count}"]['mail'],
+                    'img': usr[f"{count}"]['image'] }
+            break
+        count += 1
+    json_string = json.dumps(user)
+    print(json_string)
+    if correct is True:
+        return json.loads(json_string)
+    else:
+        return Response(
+            "No record Found",
+            status=400,
+        )
+
+
+@app.route('/getStatsWordle', methods=['POST'])
+def getstatsW():
+    filename = 'users.json'
+    with open(filename) as fp:
+        listObj = json.load(fp)
+    wordle = {}
+    # print(request.json.get('userName'))
+    # Search 'brand' for women
+    count = 0
+    for usr in listObj:
+        print(usr[f"{count}"]['name'])
+        if usr[f"{count}"]['name'] == request.json.get('userName'):
+            print(usr.get("name"))
+            wordle = {"stat": usr[f"{count}"]['wordle']}
+            break
+        else:
+            wordle = {"stat": listObj[0]["0"]['wordle']}
+        count += 1
+
+    json_string = json.dumps(wordle)
+    print(json_string)
+    return json.loads(json_string)
+
+
+@app.route('/setimage', methods=['POST'])
+def setimage():
+    filename = 'users.json'
+    with open(filename) as fp:
+        listObj = json.load(fp)
+    wordle = {}
+    # print(request.json.get('userName'))
+
+    print(request.json.get('stat'))
+    count = 0
+    for usr in listObj:
+        print(usr[f"{count}"]['name'])
+        if usr[f"{count}"]['name'] == request.json.get('userName'):
+            print(usr.get("name"))
+            usr[f"{count}"]['image'] = request.json.get('img')
+        count += 1
+    with open(filename, 'w') as json_file:
+        json.dump(listObj, json_file,
+                  indent=4,
+                  separators=(',', ': '))
+    return "true"
+
+
+@app.route('/setStatsWordle', methods=['POST'])
+def setstatsW():
+    filename = 'users.json'
+    with open(filename) as fp:
+        listObj = json.load(fp)
+    wordle = {}
+    # print(request.json.get('userName'))
+
+    print(request.json.get('stat'))
+    count = 0
+    for usr in listObj:
+        print(usr[f"{count}"]['name'])
+        if usr[f"{count}"]['name'] == request.json.get('userName'):
+            print(usr.get("name"))
+            usr[f"{count}"]['wordle'] = request.json.get('stat')
+        count += 1
+    with open(filename, 'w') as json_file:
+        json.dump(listObj, json_file,
+                  indent=4,
+                  separators=(',', ': '))
 
     return "true"
+
+
+@app.route('/getStatsSyn', methods=['POST'])
+def getstatsS():
+    filename = 'users.json'
+    with open(filename) as fp:
+        listObj = json.load(fp)
+    synonym = {}
+    # print(request.json.get('userName'))
+    # Search 'brand' for women
+    count = 0
+    for usr in listObj:
+        print(usr[f"{count}"]['name'])
+        if usr[f"{count}"]['name'] == request.json.get('userName'):
+            print(usr.get("name"))
+            synonym = {"stat": usr[f"{count}"]['syn']}
+            break
+        else:
+            synonym = {"stat": listObj[0]["0"]['wordle']}
+        count += 1
+    json_string = json.dumps(synonym)
+    print(json_string)
+    return json.loads(json_string)
+
+
+@app.route('/setStatsSyn', methods=['POST'])
+def setstatsS():
+    filename = 'users.json'
+    with open(filename) as fp:
+        listObj = json.load(fp)
+    wordle = {}
+    # print(request.json.get('userName'))
+
+    print(request.json.get('stat'))
+    count = 0
+    for usr in listObj:
+        print(usr[f"{count}"]['name'])
+        if usr[f"{count}"]['name'] == request.json.get('userName'):
+            print(usr.get("name"))
+            usr[f"{count}"]['syn'] = request.json.get('stat')
+        count += 1
+
+    with open(filename, 'w') as json_file:
+        json.dump(listObj, json_file,
+                  indent=4,
+                  separators=(',', ': '))
+
+    return "true"
+
+
+@app.route('/getStatsSpell', methods=['POST'])
+def getstatsSpell():
+    filename = 'users.json'
+    with open(filename) as fp:
+        listObj = json.load(fp)
+    spell = {}
+    # print(request.json.get('userName'))
+    # Search 'brand' for women
+    count = 0
+    for usr in listObj:
+        print(usr[f"{count}"]['name'])
+        if usr[f"{count}"]['name'] == request.json.get('userName'):
+            print(usr.get("name"))
+            spell = {"stat": usr[f"{count}"]['spell']}
+            break
+        else:
+            spell = {"stat": listObj[0]["0"]['spell']}
+        count += 1
+    json_string = json.dumps(spell)
+    print(json_string)
+    return json.loads(json_string)
+
+
+@app.route('/setStatsSpell', methods=['POST'])
+def setstatsSpell():
+    filename = 'users.json'
+    with open(filename) as fp:
+        listObj = json.load(fp)
+    # print(request.json.get('userName'))
+
+    print(request.json.get('stat'))
+    count = 0
+    for usr in listObj:
+        print(usr[f"{count}"]['name'])
+        if usr[f"{count}"]['name'] == request.json.get('userName'):
+            print(usr.get("name"))
+            usr[f"{count}"]['spell'] = request.json.get('stat')
+        count += 1
+
+    with open(filename, 'w') as json_file:
+        json.dump(listObj, json_file,
+                  indent=4,
+                  separators=(',', ': '))
+
+    return "true"
+
+
 @app.route('/get5Word')
 def word5():
     file = open('words5.txt')
